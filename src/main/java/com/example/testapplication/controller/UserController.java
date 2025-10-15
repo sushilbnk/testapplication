@@ -11,5 +11,11 @@ public class UserController {
         return "Hello, World!";
         //
     }
+    @GetMapping("/userId")
+    public String sayUserId() {
+        return "Sushil User ID: 007";
+        //
+    }
+
 //
 }
