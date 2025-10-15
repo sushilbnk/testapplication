@@ -7,6 +7,7 @@ phases:
       - aws --version
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 791860731934.dkr.ecr.us-east-1.amazonaws.com
       - REPO_URI=791860731934.dkr.ecr.us-east-1.amazonaws.com/dev-app
+      - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
     commands:
       - echo Build started on `date`
@@ -17,3 +18,11 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image to ECR...
       - docker push $REPO_URI:latest
+      - docker push $REPO_URI:$IMAGE_TAG
+      - echo '[{"name":"dev-app","imageUri":"'$REPO_URI':'$IMAGE_TAG'"}]' > imagedefinitions.json
+      - echo Writing image definitions file...
+      - cat imagedefinitions.json
+
+
+  artifacts:
+    files: imagedefinitions.json
