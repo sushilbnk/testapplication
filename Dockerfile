@@ -9,7 +9,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Run stage
-FROM public.ecr.aws/amazoncorretto/amazoncorretto:21-alpine
+FROM public.ecr.aws/amazoncorretto/amazoncorretto:21
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
