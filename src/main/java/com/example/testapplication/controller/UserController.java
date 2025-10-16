@@ -27,5 +27,11 @@ public class UserController {
         //
     }
 
+    @GetMapping("/useraccess")
+    public String sayaccess() {
+        return "User sushil auth access : admin";
+        //
+    }
+
 //
 }
