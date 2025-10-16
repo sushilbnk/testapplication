@@ -19,7 +19,7 @@ phases:
       - echo Pushing the Docker image to ECR...
       - docker push $REPO_URI:latest
       - docker push $REPO_URI:$IMAGE_TAG
-      - echo '[{"name":"dev-app","imageUri":"'$REPO_URI':'$IMAGE_TAG'"}]' > imagedefinitions.json
+      - echo '[{"name":"first-container","imageUri":"'$REPO_URI':'$IMAGE_TAG'"}]' > imagedefinitions.json
       - echo Writing image definitions file...
       - cat imagedefinitions.json
 
