@@ -16,6 +16,11 @@ public class UserController {
         return "Sushil User ID: 007";
         //
     }
+    @GetMapping("/userName")
+    public String sayUserName() {
+        return "User name is : Lenin";
+        //
+    }
 
 //
 }
