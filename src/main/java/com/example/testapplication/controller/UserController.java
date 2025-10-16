@@ -11,14 +11,19 @@ public class UserController {
         return "Hello, World!";
         //
     }
-    @GetMapping("/userId")
+    @GetMapping("/userid")
     public String sayUserId() {
         return "Sushil User ID: 007";
         //
     }
-    @GetMapping("/userName")
+    @GetMapping("/username")
     public String sayUserName() {
         return "User name is : Lenin";
+        //
+    }
+    @GetMapping("/userphone")
+    public String sayUserphone() {
+        return "User phone number is : 9988776655";
         //
     }
 
