@@ -34,5 +34,12 @@ public class UserController {
          //
     }
 
+    @GetMapping("/order")
+    public String order() {
+        return "test order placed: 1";
+        //
+        //
+    }
+
 //
 }
